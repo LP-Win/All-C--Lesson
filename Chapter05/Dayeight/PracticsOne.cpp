@@ -1,0 +1,155 @@
+#include <iostream>
+using namespace std;
+
+void printlogo(){
+    cout<<" ____        ___  _ "<<endl;
+    cout<<"|  _ \\      / _ \\/ |"<<endl;
+    cout<<"| |_) |____| | | | |"<<endl;
+    cout<<"|  __/_____| |_| | |"<<endl;
+    cout<<"|_|         \\___/|_|"<<endl;
+}
+
+void printmenu(){
+    
+    cout<<"1.Money Exchange Program"<<endl;
+    cout<<"2.Worker Salary Calculate"<<endl;
+    cout<<"3.Sum/Mul of 1...n"<<endl;
+    cout<<"4.Exit"<<endl;
+    
+}
+
+float exchangeUSDKHR(bool isUSDToKHR){
+    float amount;
+    string currency = (isUSDToKHR)? "($)": "(Riels)";
+    cout<<"Enter Amount : "; cin>>amount;
+    cout<<"Amount : "<<amount<<currency<<endl;
+    if(isUSDToKHR==true){
+        return amount * 4000;
+    }else {
+        return amount / 4000;
+    }
+}
+
+void pressentertocontinue(){
+    cout<<"\n ------------<< Press Enter To Continue >>------------"<<endl;
+    cin.ignore();
+    cin.get();
+}
+
+void moneyexchangeprogram(){
+    while(true){
+        system("clear");
+        int op;
+        cout<<"<<  Money Exchange Program  >>"<<endl;
+        cout<<"1.Exchange From USD --> KHR"<<endl;
+        cout<<"2.Enchange From KHR --> USE"<<endl;
+        cout<<"3.Exit"<<endl;
+        cout<<"Choose Exchange Option (1-3) : "; cin>>op;
+        if(op==1){
+            cout<<"USD -->> KHR"<<endl;
+            float usd = exchangeUSDKHR(true);
+            cout<<"Result ; "<<usd<<" Riel"<<endl;
+        }else if(op==2){
+            cout<<"KHR -->> USD"<<endl;
+            float khr = exchangeUSDKHR(false);
+            cout<<"Result : "<<khr<<" $"<<endl;
+        }else if(op==3){
+            cout<<"Exit"<<endl;
+            break;
+        }else {
+            cout<<"Please try again !!"<<endl;
+            pressentertocontinue();
+        }
+        pressentertocontinue();
+    }
+}
+
+double workertax(float hour, float wage, char gender){
+    float salary = hour * wage;
+        if(salary >= 1000){
+            if(gender == 'm' || gender == 'M'){
+                salary = salary * 0.5;
+            }else{
+                salary = salary * 0.7;
+            }
+        }
+    return salary;
+
+}
+
+void calculateworkersalary(){
+    string name, position;
+    char gender;
+    int age, salary, tax, hour, wage;
+    while(true){
+        system("clear");
+        cout<<"<< Calculate Worker Salary >>"<<endl;
+        cout<<"Enter Worker Name : "; cin>>name;
+        cout<<"Enter Worker Age : "; cin>>age;
+        cout<<"Enter Worker Gender : "; cin>>gender;
+        cout<<"Enter Worker Position : "; cin>>position;
+        cout<<"Enter worker Hour : "; cin>>hour;
+        cout<<"Enter Worker Wage : "; cin>>wage;
+
+        
+        system("clear");
+        cout<<"Worker Name : "<<name<<endl;
+        cout<<"Worker Age : "<<age<<" Year old "<<endl;
+        cout<<"Worker Gender : "<<gender<<endl;
+        cout<<"Worker Position : "<<position<<endl;
+        cout<<"Worker Hour : "<<hour<<" H"<<endl;
+        cout<<"Worker Wage : "<<wage<<" $"<<endl;
+        cout<<"Worker salary : "<<workertax(hour, wage, salary)<<" $"<<endl;
+        
+        cout<<"Press Enter To Continue or 'q'||'Q' To Exit"<<endl;
+        cin.ignore();
+        char quitOption = cin.get();
+        if(quitOption == 'q' || quitOption == 'Q'){
+            break;
+        }
+
+    }
+}
+
+long mulSumOfN(){
+    // 1-> sum , 2 -> mul
+    // input -> 
+    // sum  : n=5 -> 1+2+3+4+5
+    // mul  : n=5 -> 1*2*3*4*5
+}
+
+int main(){
+    
+    system("clear");
+    int option;
+    do{
+        system("clear");
+        printlogo();
+        printmenu();
+        cout<<"Choose Option : "; cin>>option;
+        switch (option)
+        {
+        case 1:
+            moneyexchangeprogram();
+        break;
+        case 2:
+            calculateworkersalary();
+        break;
+        case 3:{}
+            mulSumOfN();
+        break;
+        case 4:{}
+        break;
+        
+        default:
+        break;
+        }
+
+    }while (option !=4);
+    
+
+
+
+
+    return 0;
+}
