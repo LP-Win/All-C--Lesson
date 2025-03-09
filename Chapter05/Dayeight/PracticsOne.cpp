@@ -58,7 +58,6 @@ void moneyexchangeprogram(){
             break;
         }else {
             cout<<"Please try again !!"<<endl;
-            pressentertocontinue();
         }
         pressentertocontinue();
     }
@@ -137,7 +136,7 @@ long MulOfN(){
 void SumMulOfN(){
     int option;
     do{
-        ("cls");
+        system("cls");
         int op;
         cout<<"<<------ SumMulOfN Program ------>>"<<endl;
         cout<<"1.Sum Program."<<endl;
@@ -157,7 +156,6 @@ void SumMulOfN(){
             break;
         }else{
             cout<<"Please try again !!"<<endl;
-            pressentertocontinue();
         }
         pressentertocontinue();
     }while (option !=3);
