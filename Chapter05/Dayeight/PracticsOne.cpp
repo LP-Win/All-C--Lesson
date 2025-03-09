@@ -38,7 +38,7 @@ void pressentertocontinue(){
 
 void moneyexchangeprogram(){
     while(true){
-        system("clear");
+        system("cls");
         int op;
         cout<<"<<  Money Exchange Program  >>"<<endl;
         cout<<"1.Exchange From USD --> KHR"<<endl;
@@ -82,7 +82,7 @@ void calculateworkersalary(){
     char gender;
     int age, salary, tax, hour, wage;
     while(true){
-        system("clear");
+        system("cls");
         cout<<"<< Calculate Worker Salary >>"<<endl;
         cout<<"Enter Worker Name : "; cin>>name;
         cout<<"Enter Worker Age : "; cin>>age;
@@ -92,7 +92,7 @@ void calculateworkersalary(){
         cout<<"Enter Worker Wage : "; cin>>wage;
 
         
-        system("clear");
+        system("cls");
         cout<<"Worker Name : "<<name<<endl;
         cout<<"Worker Age : "<<age<<" Year old "<<endl;
         cout<<"Worker Gender : "<<gender<<endl;
@@ -111,19 +111,65 @@ void calculateworkersalary(){
     }
 }
 
-long mulSumOfN(){
+long SumOfN(){
     // 1-> sum , 2 -> mul
     // input -> 
     // sum  : n=5 -> 1+2+3+4+5
     // mul  : n=5 -> 1*2*3*4*5
+
+    int sum = 0, n, i;
+    //cout<<"Enter Min Number : "; cin>>min;
+    cout<<"Enter Max Number : "; cin>>n;
+    for (int i=1; i<=n; i++){
+        sum = sum + i;
+    }
+    return sum;
+}
+
+long MulOfN(){
+    int mul = 1, n, i;
+    cout<<"Enter Number : "; cin>>n;
+    for (i = 2; i <= n; i++)
+        mul *= i;
+    return mul;
+}
+
+void SumMulOfN(){
+    int option;
+    do{
+        ("cls");
+        int op;
+        cout<<"<<------ SumMulOfN Program ------>>"<<endl;
+        cout<<"1.Sum Program."<<endl;
+        cout<<"2.Mul Program."<<endl;
+        cout<<"3.Exit"<<endl;
+        cout<<"Choose Option : "; cin>>op;
+        if(op==1){
+            cout<<"<<------ Sun Program ------>>"<<endl;
+            int sum = SumOfN();
+            cout<<"The Number is : "<<sum<<endl;
+        }else if(op==2){
+            cout<<"<<------ Mun Program ------>>"<<endl;
+            int Mul = MulOfN();
+            cout<<"The number is : "<<Mul<<endl;
+        } else if(op==3){
+            cout<<"Exit"<<endl;
+            break;
+        }else{
+            cout<<"Please try again !!"<<endl;
+            pressentertocontinue();
+        }
+        pressentertocontinue();
+    }while (option !=3);
+    
 }
 
 int main(){
     
-    system("clear");
+    system("cls");
     int option;
     do{
-        system("clear");
+        system("cls");
         printlogo();
         printmenu();
         cout<<"Choose Option : "; cin>>option;
@@ -136,7 +182,7 @@ int main(){
             calculateworkersalary();
         break;
         case 3:{}
-            mulSumOfN();
+            SumMulOfN();
         break;
         case 4:{}
         break;
@@ -147,9 +193,5 @@ int main(){
 
     }while (option !=4);
     
-
-
-
-
     return 0;
 }
