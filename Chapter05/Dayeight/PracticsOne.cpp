@@ -76,6 +76,15 @@ double workertax(float hour, float wage, char gender){
 
 }
 
+long mulsumofn(bool isSum){
+    int n;
+    cout<<"Enter the number : "; cin>>n;
+    double result = (isSum) ?0:1;
+    for (int i=1; i<=n; i++)
+        result = (isSum) ? result + i : result * i;
+    return result;
+}
+
 void calculateworkersalary(){
     string name, position;
     char gender;
@@ -162,7 +171,7 @@ void SumMulOfN(){
     
 }
 
-int main(){
+int main()
     
     system("cls");
     int option;
